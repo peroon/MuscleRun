@@ -25,7 +25,7 @@ function Start () {
 
 	model_crouch = GameObject.Find("baseMale@crouch");
 	model_sprint = GameObject.Find("baseMale@sprint");
-	//model_sprint.active = false;
+	model_sprint.active = false;
 }
 
 function Update () {
@@ -64,7 +64,7 @@ function setTimer(){
 function beforeReadyGui(){
 	var readyW = 300;
 	var readyH = 100;
-	var readyGuiStyle = getRandomStyle();
+	var readyGuiStyle = getRandomStyle(50);
 	if (GUI.Button (Rect (WIDTH/2 - readyW/2,HEIGHT/2 - readyH/2,readyW,readyH), "I'm Ready.", readyGuiStyle)) {
 		isTimerSet = true;
 		setTimer();
@@ -75,7 +75,7 @@ function beforeReadyGui(){
 function afterReadyGui(){
 	var readyW = 400;
 	var readyH = 100;
-	var readyGuiStyle = getRandomStyle();
+	var readyGuiStyle = getRandomStyle(50);
 
 	//before pistol
 	if(startTimeLeft>0){
@@ -94,6 +94,10 @@ function startRun(){
 	isGameStart = true;
 	model_crouch.active = false;
 	model_sprint.active = true;
+
+	//other script
+	run_gui_text.isRunning = true;
+
 }
 
 function gameStartGui(){
@@ -107,9 +111,9 @@ function gameStartGui(){
 	  var rightStyle; 
 	  if(isLeftPressed){
 		  leftStyle = getNormalStyle();
-		  rightStyle = getRandomStyle();
+		  rightStyle = getRandomStyle(200);
 	  }else{
-		  leftStyle = getRandomStyle();
+		  leftStyle = getRandomStyle(200);
 		  rightStyle = getNormalStyle();
 	  }
 	  //L
@@ -133,8 +137,9 @@ function onSuccess(){
 	model_sprint.SendMessage('updateSpeed', successNum);
 }
 
-function getRandomStyle(){
+function getRandomStyle(_size:int){
 	var guiStyle = getNormalStyle();
+	guiStyle.fontSize = _size;
 	var col = Color(Random.value, Random.value, Random.value);
 	guiStyle.normal.textColor = col;
 	guiStyle.hover.textColor = col;

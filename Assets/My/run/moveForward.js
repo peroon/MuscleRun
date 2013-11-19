@@ -3,9 +3,12 @@
 var speed = 0.0;
 var animationSpeed = 0.0;
 
+var speedInit = 0.01;
+var animationSpeedInit = 0.01;
+
 function Start () {
-  speed = 10.0;
-  animationSpeed = 1.0;
+  speed = speedInit;
+  animationSpeed = animationSpeedInit;
 }
 
 function Update () {
@@ -14,14 +17,14 @@ function Update () {
 }
 
 function updateSpeed(successNum:float){
-	var SPEED_LIMIT = 200;
+	var SPEED_LIMIT = 300;
 	var ANIMATION_SPEED_LIMIT = 4.0;
 
 	if(speed < SPEED_LIMIT){
-		speed += (successNum * 0.5);
+		speed *= 1.01;
 	}
 
-	if(animationSpeed< ANIMATION_SPEED_LIMIT){
-		animationSpeed += (successNum * 0.01);
+	if(animationSpeed < ANIMATION_SPEED_LIMIT){
+		animationSpeed *= 1.005;
 	}
 }
