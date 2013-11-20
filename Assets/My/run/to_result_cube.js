@@ -1,5 +1,9 @@
 ﻿#pragma strict
 
 function OnTriggerEnter (other : Collider) {
-	Application.LoadLevel ("result");
+	print("goal");
+	Destroy(other);
+	//Application.LoadLevel ("result");
+	run_gui_text.isFinish = true;
+	run_gui_text.isRunning = false;
 }

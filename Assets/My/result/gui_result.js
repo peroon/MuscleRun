@@ -16,7 +16,7 @@ function OnGUI () {
 	var buttonW = W/4;
 	var buttonH = H/6;
 
-  if (GUI.Button (Rect (0,0,buttonW,buttonH), "Return Top", guiStyle)) {
+  if (GUI.Button (Rect (0,0,buttonW,buttonH), "Top", guiStyle)) {
     Application.LoadLevel ("top");	  
   }
   if (GUI.Button (Rect (W - W/4,0,buttonW,buttonH), "Retry", guiStyle)) {
@@ -27,6 +27,6 @@ function OnGUI () {
 
 function getStyle(){
 	var guiStyle = new GUIStyle(GUI.skin.button);
-	guiStyle.fontSize = 50;
+	guiStyle.fontSize = 40;
 	return guiStyle;
 }

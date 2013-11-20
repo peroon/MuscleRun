@@ -10,6 +10,6 @@
 
 function getStyle(){
 	var guiStyle = new GUIStyle(GUI.skin.button);
-	guiStyle.fontSize = 50;
+	guiStyle.fontSize = 30;
 	return guiStyle;
 }

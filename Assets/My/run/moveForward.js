@@ -21,7 +21,7 @@ function updateSpeed(successNum:float){
 	var ANIMATION_SPEED_LIMIT = 4.0;
 
 	if(speed < SPEED_LIMIT){
-		speed *= 1.01;
+		speed *= 1.02;
 	}
 
 	if(animationSpeed < ANIMATION_SPEED_LIMIT){

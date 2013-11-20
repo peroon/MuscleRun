@@ -111,9 +111,9 @@ function gameStartGui(){
 	  var rightStyle; 
 	  if(isLeftPressed){
 		  leftStyle = getNormalStyle();
-		  rightStyle = getRandomStyle(200);
+		  rightStyle = getRandomStyle(150);
 	  }else{
-		  leftStyle = getRandomStyle(200);
+		  leftStyle = getRandomStyle(150);
 		  rightStyle = getNormalStyle();
 	  }
 	  //L
@@ -133,6 +133,7 @@ function gameStartGui(){
 }
 
 function onSuccess(){
+	audio.Play();
 	successNum += 1;
 	model_sprint.SendMessage('updateSpeed', successNum);
 }
